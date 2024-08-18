@@ -1,0 +1,54 @@
+#!/bin/sh
+
+wall=$(find ~/pix/wallp -type f -name "*.jpg" -o -name "*.png" | shuf -n 1)
+
+xwallpaper --zoom "$wall"
+
+wal -c
+wal -i $wall
+
+xdotool key super+F5
+
+# Extract colors from Pywal's JSON file
+background=$(jq -r '.special.background' ~/.cache/wal/colors.json)
+foreground=$(jq -r '.special.foreground' ~/.cache/wal/colors.json)
+frame_color=$(jq -r '.colors.color1' ~/.cache/wal/colors.json)
+
+# Print the extracted colors to verify
+echo "Background: $background"
+echo "Foreground: $foreground"
+echo "Frame Color: $frame_color"
+
+# Write new Dunst configuration
+cat <<EOF > ~/.config/dunst/dunstrc
+[global]
+    font = Monospace 10
+    timeout = 10
+    origin = top-right
+    padding = 9
+    frame_width = 4
+    separator_height = 2
+    background = "$background"
+    foreground = "$foreground"
+    frame_color = "$frame_color"
+
+[urgency_low]
+    background = "#444444"
+    foreground = "#bbbbbb"
+    frame_color = "#444444"
+
+[urgency_normal]
+    background = "$background"
+    foreground = "$foreground"
+    frame_color = "$frame_color"
+
+[urgency_critical]
+    background = "#ff0000"
+    foreground = "#ffffff"
+    frame_color = "#ff0000"
+EOF
+
+# Restart Dunst to apply changes
+pkill dunst && dunst &
+echo "Dunst restarted"
+

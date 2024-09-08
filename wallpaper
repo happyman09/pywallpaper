@@ -1,6 +1,6 @@
 #!/bin/sh
 
-wall=$(find ~/pix/wallpaper -type f -name "*.jpg" -o -name "*.png" | shuf -n 1)
+wall=$(find ~/path/to/folder -type f -name "*.jpg" -o -name "*.png" | shuf -n 1)
 
 xwallpaper --zoom "$wall"
 

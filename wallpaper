@@ -11,7 +11,7 @@ xdotool key super+F5
 
 # Extract colors from Pywal's JSON file
 background=$(jq -r '.special.background' ~/.cache/wal/colors.json)
-foreground=$(jq -r '.special.foreground' ~/.cache/wal/colors.json)
+foreground=$(jq -r '.special.foreground' ~/.cache/wal/colors.json) # Change pywal cache file path if not in deafult path
 frame_color=$(jq -r '.colors.color1' ~/.cache/wal/colors.json)
 
 # Print the extracted colors to verify
@@ -20,7 +20,7 @@ echo "Foreground: $foreground"
 echo "Frame Color: $frame_color"
 
 # Write new Dunst configuration
-cat <<EOF > ~/.config/dunst/dunstrc #Change file path if dunstrc isn't in the deafault path
+cat <<EOF > ~/.config/dunst/dunstrc # Change file path if dunstrc isn't in the deafault path
 [global]
     font = Monospace 10
     timeout = 10

@@ -20,7 +20,7 @@ echo "Foreground: $foreground"
 echo "Frame Color: $frame_color"
 
 # Write new Dunst configuration
-cat <<EOF > ~/.config/dunst/dunstrc # Change file path if dunstrc isn't in the deafault path
+cat <<EOF > ~/.config/dunst/dunstrc    #Change file path if dunstrc isn't in the deafault path
 [global]
     font = Monospace 10
     timeout = 10

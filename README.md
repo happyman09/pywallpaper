@@ -2,4 +2,4 @@ Auto-randomnize your wallpapers in yours specified folder and set the randomnize
 along with auto-generated pywall colors corresponding to the wallpaper, which also applies colors to vanilla dunst notify.
 
 ## **https://github.com/happyman09/auto-wallpaper-themer/**
-**script has been updated**
+**script has been updated

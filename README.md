@@ -3,4 +3,4 @@ along with auto-generated pywall colors corresponding to the wallpaper, which al
 
 ---
 ## **https://github.com/happyman09/auto-wallpaper-themer/**
-**script has been updated**
+**script has been updated with new, improved features**
